@@ -1,29 +1,29 @@
 class WinereviewsController < ApplicationController
 #  before_action :set_rating, only: [:show, :edit, :update, :destroy]
 
-  # GET /ratings
-  # GET /ratings.json
+  # GET /winereview
+  # GET /winereview.json
   def index
-    @ratings = Winereview.all
+    @winereview = Winereview.all
   end
 
-  # GET /ratings/1
-  # GET /ratings/1.json
+  # GET /winereview/1
+  # GET /winereview/1.json
   def show
     @winereview = Winereview.find(params[:id])
   end
 
-  # GET /ratings/new
+  # GET /winereview/new
   def new
     @winereview = Winereview.new
   end
-  # GET /ratings/1/edit
+  # GET /winereview/1/edit
   def edit
      @winereview =Winereview.find(params[:id])
   end
 
-  # POST /ratings
-  # POST /ratings.json
+  # POST /winereview
+  # POST /winereview.json
   def create
     if @winereview = Winereview.create(rating_params)
       redirect_to root_path
@@ -32,8 +32,8 @@ class WinereviewsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /ratings/1
-  # PATCH/PUT /ratings/1.json
+  # PATCH/PUT /winereview/1
+  # PATCH/PUT /winereview/1.json
   def update
     @winereview = Winereview.find(params[:id])
 
@@ -44,8 +44,8 @@ class WinereviewsController < ApplicationController
     end
   end
 
-  # DELETE /ratings/1
-  # DELETE /ratings/1.json
+  # DELETE /winereview/1
+  # DELETE /winereview/1.json
   def destroy
     @winereview= Rating.find(params[:id])
     if @winereview.destroy
