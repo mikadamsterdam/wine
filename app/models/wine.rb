@@ -1,3 +1,3 @@
 class Wine < ActiveRecord::Base
-  has_many :rating
+  has_many :wine_reviews
 end

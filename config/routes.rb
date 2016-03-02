@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
-  resources :origins
-  resources :ratings
-  resources :wines
+   root to: 'wines#index'
+
+  resources :wines, except: [:new,:edit] do
+      resources :wine_review, except: [:new, :edit]
+  end
+
+
+#Rails.application.reload_routes!
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

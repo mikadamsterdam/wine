@@ -34,7 +34,7 @@ class WinesController < ApplicationController
         render :new
       end
     end
-  end
+
 
   # PATCH/PUT /wines/1
   # PATCH/PUT /wines/1.json
@@ -45,7 +45,7 @@ class WinesController < ApplicationController
       redirect_to @wine
     else
       render :edit
-      end
+
     end
   end
 
@@ -68,6 +68,8 @@ class WinesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def wine_params
-      params.require(:wine).permit(:name, :description)
+      params.require(:wine).permit(
+      :name, :description, :origin
+      )
     end
 end
