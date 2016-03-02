@@ -20,6 +20,7 @@ class WinesController < ApplicationController
 
   # GET /wines/1/edit
   def edit
+    @wine = Wine.find(params[:id])
   end
 
   # POST /wines
@@ -51,18 +52,19 @@ class WinesController < ApplicationController
   # DELETE /wines/1
   # DELETE /wines/1.json
   def destroy
-    @wine.destroy
-    respond_to do |format|
-      format.html { redirect_to wines_url, notice: 'Wine was successfully destroyed.' }
-      format.json { head :no_content }
+    wine=Wine.find(params[:id])
+    if @wine.destroy
+      redirect_to root_path
+    else
+      redirect_to @wine
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_wine
-      @wine = Wine.find(params[:id])
-    end
+#  def set_wine
+#      @wine = Wine.find(params[:id])
+#    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def wine_params
